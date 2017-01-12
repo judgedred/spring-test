@@ -1,0 +1,618 @@
+----------------------------------START FFST------------------------------------
+E:\Oleg\spring-test\FFDC\JMSCC0001.FDC PID:12060
+
+                                    JMS Common Client First Failure Symptom Report
+                                            
+
+Product          :- IBM WebSphere MQ classes for JMS
+Date/Time        :- Fri Nov 04 14:13:15 MSK 2016
+System time      :- 1478257995570
+Operating System :- Windows 10
+UserID           :- ovoronovich
+Java Vendor      :- Oracle Corporation
+Java Version     :- 25.111-b14
+
+Source Class     :- JmsFactoryFactory
+Source Method    :- getIntance(int)
+ProbeID          :- XI001005
+Thread           :- name=main priority=5 group=main ccl=sun.misc.Launcher$AppClassLoader@76ed5528
+
+                                      Data
+                                      ----
+
+|   connectionTypeName  :-  com.ibm.msg.client.wmq
+|   exception           :-  ExceptionDepth is 4
+|   exception           :-  
+|   |   Cause:1       :-  java.lang.reflect.InvocationTargetException
+|   |   Cause:2       :-  java.lang.NoClassDefFoundError: com/ibm/disthub2/impl/client/SessionConfig
+|   |   Cause:3       :-  java.lang.ClassNotFoundException: com.ibm.disthub2.impl.client.SessionConfig
+|   |   Message:2     :-  com/ibm/disthub2/impl/client/SessionConfig
+|   |   Message:3     :-  com.ibm.disthub2.impl.client.SessionConfig
+|   |   StackTrace:1  :-  java.lang.reflect.InvocationTargetException
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at com.ibm.msg.client.jms.JmsFactoryFactory.getInstance(JmsFactoryFactory.java:182)
+|   |   	at com.ibm.mq.jms.MQConnectionFactory.initialiseMQConnectionFactory(MQConnectionFactory.java:3314)
+|   |   	at com.ibm.mq.jms.MQConnectionFactory.<init>(MQConnectionFactory.java:283)
+|   |   	at com.ibm.mq.jms.MQQueueConnectionFactory.<init>(MQQueueConnectionFactory.java:81)
+|   |   	at hello.config.Application.mqQueueConnectionFactory(Application.java:64)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$mqQueueConnectionFactory$1(<generated>)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>)
+|   |   	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+|   |   	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+|   |   	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:381)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>)
+|   |   	at hello.config.Application.myConnectionFactory(Application.java:76)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$myConnectionFactory$0(<generated>)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>)
+|   |   	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.myConnectionFactory(<generated>)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+|   |   	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+|   |   	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+|   |   	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:751)
+|   |   	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861)
+|   |   	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541)
+|   |   	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+|   |   	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+|   |   	at hello.config.Application.main(Application.java:92)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+|   |   Caused by: java.lang.NoClassDefFoundError: com/ibm/disthub2/impl/client/SessionConfig
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.setupDistHubTracing(WMQFactoryFactory.java:335)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.<init>(WMQFactoryFactory.java:305)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.getInstance(WMQFactoryFactory.java:186)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQComponent.getFactoryInstance(WMQComponent.java:140)
+|   |   	at com.ibm.msg.client.jms.internal.JmsFactoryFactoryImpl.getInstance(JmsFactoryFactoryImpl.java:157)
+|   |   	... 64 more
+|   |   Caused by: java.lang.ClassNotFoundException: com.ibm.disthub2.impl.client.SessionConfig
+|   |   	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+|   |   	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+|   |   	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+|   |   	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+|   |   	... 69 more
+|   |   
+|   |   StackTrace:2  :-  java.lang.NoClassDefFoundError: com/ibm/disthub2/impl/client/SessionConfig
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.setupDistHubTracing(WMQFactoryFactory.java:335)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.<init>(WMQFactoryFactory.java:305)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.getInstance(WMQFactoryFactory.java:186)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQComponent.getFactoryInstance(WMQComponent.java:140)
+|   |   	at com.ibm.msg.client.jms.internal.JmsFactoryFactoryImpl.getInstance(JmsFactoryFactoryImpl.java:157)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at com.ibm.msg.client.jms.JmsFactoryFactory.getInstance(JmsFactoryFactory.java:182)
+|   |   	at com.ibm.mq.jms.MQConnectionFactory.initialiseMQConnectionFactory(MQConnectionFactory.java:3314)
+|   |   	at com.ibm.mq.jms.MQConnectionFactory.<init>(MQConnectionFactory.java:283)
+|   |   	at com.ibm.mq.jms.MQQueueConnectionFactory.<init>(MQQueueConnectionFactory.java:81)
+|   |   	at hello.config.Application.mqQueueConnectionFactory(Application.java:64)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$mqQueueConnectionFactory$1(<generated>)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>)
+|   |   	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+|   |   	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+|   |   	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:381)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>)
+|   |   	at hello.config.Application.myConnectionFactory(Application.java:76)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$myConnectionFactory$0(<generated>)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>)
+|   |   	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.myConnectionFactory(<generated>)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+|   |   	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+|   |   	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+|   |   	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:751)
+|   |   	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861)
+|   |   	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541)
+|   |   	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+|   |   	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+|   |   	at hello.config.Application.main(Application.java:92)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+|   |   Caused by: java.lang.ClassNotFoundException: com.ibm.disthub2.impl.client.SessionConfig
+|   |   	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+|   |   	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+|   |   	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+|   |   	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+|   |   	... 69 more
+|   |   
+|   |   StackTrace:3  :-  java.lang.ClassNotFoundException: com.ibm.disthub2.impl.client.SessionConfig
+|   |   	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+|   |   	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+|   |   	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+|   |   	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.setupDistHubTracing(WMQFactoryFactory.java:335)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.<init>(WMQFactoryFactory.java:305)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQFactoryFactory.getInstance(WMQFactoryFactory.java:186)
+|   |   	at com.ibm.msg.client.wmq.factories.WMQComponent.getFactoryInstance(WMQComponent.java:140)
+|   |   	at com.ibm.msg.client.jms.internal.JmsFactoryFactoryImpl.getInstance(JmsFactoryFactoryImpl.java:157)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at com.ibm.msg.client.jms.JmsFactoryFactory.getInstance(JmsFactoryFactory.java:182)
+|   |   	at com.ibm.mq.jms.MQConnectionFactory.initialiseMQConnectionFactory(MQConnectionFactory.java:3314)
+|   |   	at com.ibm.mq.jms.MQConnectionFactory.<init>(MQConnectionFactory.java:283)
+|   |   	at com.ibm.mq.jms.MQQueueConnectionFactory.<init>(MQQueueConnectionFactory.java:81)
+|   |   	at hello.config.Application.mqQueueConnectionFactory(Application.java:64)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$mqQueueConnectionFactory$1(<generated>)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>)
+|   |   	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+|   |   	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+|   |   	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:381)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>)
+|   |   	at hello.config.Application.myConnectionFactory(Application.java:76)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$myConnectionFactory$0(<generated>)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>)
+|   |   	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+|   |   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+|   |   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.myConnectionFactory(<generated>)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+|   |   	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+|   |   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+|   |   	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+|   |   	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+|   |   	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:751)
+|   |   	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861)
+|   |   	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541)
+|   |   	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+|   |   	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+|   |   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+|   |   	at hello.config.Application.main(Application.java:92)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   |   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   |   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   |   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   |   	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+|   |   
+
+                              Version information
+                              -------------------
+
+IBM WebSphere MQ JMS Provider
+7.5.0.2
+p750-002-131001_DE
+Production
+
+Common Services for Java Platform, Standard Edition
+7.5.0.2
+p750-002-131001_DE
+Production
+
+Java Message Service Client
+7.5.0.2
+p750-002-131001_DE
+Production
+
+WebSphere MQ classes for Java Message Service
+7.5.0.2
+p750-002-131001_DE
+Production
+
+
+
+                                  Stack trace
+                                  -----------
+
+Stack trace to show the location of the FFST call
+|   FFST Location  :-  java.lang.Exception
+|   	at com.ibm.msg.client.commonservices.trace.Trace.getCurrentPosition(Trace.java:1972)
+|   	at com.ibm.msg.client.commonservices.trace.Trace.createFFSTString(Trace.java:1911)
+|   	at com.ibm.msg.client.commonservices.trace.Trace.ffstInternal(Trace.java:1800)
+|   	at com.ibm.msg.client.commonservices.trace.Trace.ffst(Trace.java:1673)
+|   	at com.ibm.msg.client.jms.JmsFactoryFactory.getInstance(JmsFactoryFactory.java:214)
+|   	at com.ibm.mq.jms.MQConnectionFactory.initialiseMQConnectionFactory(MQConnectionFactory.java:3314)
+|   	at com.ibm.mq.jms.MQConnectionFactory.<init>(MQConnectionFactory.java:283)
+|   	at com.ibm.mq.jms.MQQueueConnectionFactory.<init>(MQQueueConnectionFactory.java:81)
+|   	at hello.config.Application.mqQueueConnectionFactory(Application.java:64)
+|   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$mqQueueConnectionFactory$1(<generated>)
+|   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>)
+|   	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+|   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+|   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>)
+|   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+|   	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+|   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+|   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+|   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+|   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+|   	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+|   	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+|   	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+|   	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+|   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:381)
+|   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>)
+|   	at hello.config.Application.myConnectionFactory(Application.java:76)
+|   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$myConnectionFactory$0(<generated>)
+|   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>)
+|   	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+|   	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+|   	at hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.myConnectionFactory(<generated>)
+|   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+|   	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+|   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+|   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+|   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+|   	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+|   	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+|   	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+|   	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+|   	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+|   	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:751)
+|   	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861)
+|   	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541)
+|   	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+|   	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+|   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+|   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+|   	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+|   	at hello.config.Application.main(Application.java:92)
+|   	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+|   	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+|   	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+|   	at java.lang.reflect.Method.invoke(Method.java:498)
+|   	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+|   
+
+                            Property Store Contents
+                            -----------------------
+
+All currently set properties
+|   PID                            :-  12060
+|   awt.toolkit                    :-  sun.awt.windows.WToolkit
+|   file.encoding                  :-  UTF-8
+|   file.encoding.pkg              :-  sun.io
+|   file.separator                 :-  \
+|   idea.launcher.bin.path         :-  C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.2\bin
+|   idea.launcher.port             :-  7535
+|   java.awt.graphicsenv           :-  sun.awt.Win32GraphicsEnvironment
+|   java.awt.headless              :-  true
+|   java.awt.printerjob            :-  sun.awt.windows.WPrinterJob
+|   java.class.path                :-  C:\Program Files\Java\jdk1.8.0_111\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\rt.jar;E:\Oleg\spring-test\target\classes;C:\Users\ovoronovich\.m2\repository\org\springframework\boot\spring-boot-starter\1.4.1.RELEASE\spring-boot-starter-1.4.1.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\boot\spring-boot\1.4.1.RELEASE\spring-boot-1.4.1.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\spring-core\4.3.3.RELEASE\spring-core-4.3.3.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\spring-context\4.3.3.RELEASE\spring-context-4.3.3.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\1.4.1.RELEASE\spring-boot-autoconfigure-1.4.1.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\boot\spring-boot-starter-logging\1.4.1.RELEASE\spring-boot-starter-logging-1.4.1.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\ch\qos\logback\logback-classic\1.1.7\logback-classic-1.1.7.jar;C:\Users\ovoronovich\.m2\repository\ch\qos\logback\logback-core\1.1.7\logback-core-1.1.7.jar;C:\Users\ovoronovich\.m2\repository\org\slf4j\slf4j-api\1.7.21\slf4j-api-1.7.21.jar;C:\Users\ovoronovich\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.21\jcl-over-slf4j-1.7.21.jar;C:\Users\ovoronovich\.m2\repository\org\slf4j\jul-to-slf4j\1.7.21\jul-to-slf4j-1.7.21.jar;C:\Users\ovoronovich\.m2\repository\org\slf4j\log4j-over-slf4j\1.7.21\log4j-over-slf4j-1.7.21.jar;C:\Users\ovoronovich\.m2\repository\org\yaml\snakeyaml\1.17\snakeyaml-1.17.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\spring-jms\4.3.3.RELEASE\spring-jms-4.3.3.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\spring-aop\4.3.3.RELEASE\spring-aop-4.3.3.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\spring-beans\4.3.3.RELEASE\spring-beans-4.3.3.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\spring-expression\4.3.3.RELEASE\spring-expression-4.3.3.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\spring-messaging\4.3.3.RELEASE\spring-messaging-4.3.3.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\org\springframework\spring-tx\4.3.3.RELEASE\spring-tx-4.3.3.RELEASE.jar;C:\Users\ovoronovich\.m2\repository\com\ibm\mqjms\7.5.0.2\mqjms-7.5.0.2.jar;C:\Users\ovoronovich\.m2\repository\com\ibm\jmqi\7.5.0.2\jmqi-7.5.0.2.jar;C:\Users\ovoronovich\.m2\repository\javax\jms\jms-api\1.1-rev-1\jms-api-1.1-rev-1.jar;C:\Users\ovoronovich\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.8.3\jackson-databind-2.8.3.jar;C:\Users\ovoronovich\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.8.3\jackson-annotations-2.8.3.jar;C:\Users\ovoronovich\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.8.3\jackson-core-2.8.3.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.2\lib\idea_rt.jar
+|   java.class.version             :-  52.0
+|   java.endorsed.dirs             :-  C:\Program Files\Java\jdk1.8.0_111\jre\lib\endorsed
+|   java.ext.dirs                  :-  C:\Program Files\Java\jdk1.8.0_111\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+|   java.home                      :-  C:\Program Files\Java\jdk1.8.0_111\jre
+|   java.io.tmpdir                 :-  C:\Users\OVORON~1\AppData\Local\Temp\
+|   java.library.path              :-  C:\Program Files\Java\jdk1.8.0_111\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\IBM\WebSphere MQ\java\lib;C:\Program Files (x86)\IBM\WebSphere MQ\java\lib64;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\ovoronovich\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;c:\Program Files\apache-maven-3.3.9\bin\;C:\Program Files\Java\jdk1.7.0_79\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\IBM\WebSphere MQ\bin64;C:\Program Files (x86)\IBM\WebSphere MQ\bin;C:\Program Files (x86)\IBM\WebSphere MQ\tools\c\samples\bin;C:\Users\ovoronovich\AppData\Local\Microsoft\WindowsApps;;.
+|   java.runtime.name              :-  Java(TM) SE Runtime Environment
+|   java.runtime.version           :-  1.8.0_111-b14
+|   java.specification.name        :-  Java Platform API Specification
+|   java.specification.vendor      :-  Oracle Corporation
+|   java.specification.version     :-  1.8
+|   java.vendor                    :-  Oracle Corporation
+|   java.vendor.url                :-  http://java.oracle.com/
+|   java.vendor.url.bug            :-  http://bugreport.sun.com/bugreport/
+|   java.version                   :-  1.8.0_111
+|   java.vm.info                   :-  mixed mode
+|   java.vm.name                   :-  Java HotSpot(TM) 64-Bit Server VM
+|   java.vm.specification.name     :-  Java Virtual Machine Specification
+|   java.vm.specification.vendor   :-  Oracle Corporation
+|   java.vm.specification.version  :-  1.8
+|   java.vm.vendor                 :-  Oracle Corporation
+|   java.vm.version                :-  25.111-b14
+|   line.separator                 :-  
+|   
+|   org.jboss.logging.provider     :-  slf4j
+|   os.arch                        :-  amd64
+|   os.name                        :-  Windows 10
+|   os.version                     :-  10.0
+|   path.separator                 :-  ;
+|   spring.beaninfo.ignore         :-  true
+|   sun.arch.data.model            :-  64
+|   sun.boot.class.path            :-  C:\Program Files\Java\jdk1.8.0_111\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_111\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_111\jre\classes
+|   sun.boot.library.path          :-  C:\Program Files\Java\jdk1.8.0_111\jre\bin
+|   sun.cpu.endian                 :-  little
+|   sun.cpu.isalist                :-  amd64
+|   sun.desktop                    :-  windows
+|   sun.io.unicode.encoding        :-  UnicodeLittle
+|   sun.java.command               :-  com.intellij.rt.execution.application.AppMain hello.config.Application
+|   sun.java.launcher              :-  SUN_STANDARD
+|   sun.jnu.encoding               :-  Cp1251
+|   sun.management.compiler        :-  HotSpot 64-Bit Tiered Compilers
+|   sun.os.patch.level             :-  
+|   user.country                   :-  RU
+|   user.dir                       :-  E:\Oleg\spring-test
+|   user.home                      :-  C:\Users\ovoronovich
+|   user.language                  :-  ru
+|   user.name                      :-  ovoronovich
+|   user.script                    :-  
+|   user.timezone                  :-  Europe/Moscow
+|   user.variant                   :-  
+|   visualvm.id                    :-  586969271870447
+
+                           WorkQueueMananger Contents
+                           --------------------------
+
+|   Current ThreadPool size      :-  0
+|   Maintain ThreadPool size     :-  false
+|   Maximum ThreadPool size      :-  -1
+|   ThreadPool inactive timeout  :-  0
+
+                               Runtime properties
+                               ------------------
+
+|   Available processors         :-  2
+|   Free memory in bytes (now)   :-  102004360
+|   Max memory in bytes          :-  1849688064
+|   Total memory in bytes (now)  :-  124780544
+
+                           Component Manager Contents
+                           --------------------------
+
+Common Services Components:
+|   CMVC               :-  p750-002-131001_DE
+|   Class Name         :-  class com.ibm.msg.client.commonservices.j2se.J2SEComponent
+|   Component Name     :-  com.ibm.msg.client.commonservices.j2se
+|   Component Title    :-  Common Services for Java Platform, Standard Edition
+|   Factory Class      :-  class com.ibm.msg.client.commonservices.j2se.CommonServicesImplementation
+|   Version            :-  7.5.0.2
+|   inPreferenceTo[0]  :-  com.ibm.msg.client.commonservices.j2me
+
+Messaging Provider Components:
+|   CMVC             :-  p750-002-131001_DE
+|   Class Name       :-  class com.ibm.msg.client.wmq.factories.WMQComponent
+|   Component Name   :-  com.ibm.msg.client.wmq
+|   Component Title  :-  IBM WebSphere MQ JMS Provider
+|   Factory Class    :-  class com.ibm.msg.client.wmq.factories.WMQFactoryFactory
+|   Version          :-  7.5.0.2
+|   mqjbnd level     :-  p750-002-131001_DE
+
+
+
+
+                         Provider Specific Information
+                         -----------------------------
+
+Overview of JMS System
+Num. Connections : 0
+Num. Sessions    : 0
+Num. Consumers   : 0
+Num. Producers   : 0
+
+Detailed JMS System Information
+Connections      : 
+Sessions         : 
+Consumers        : 
+Producers        : 
+
+All Thread Information
+
+                          Name : Attach Listener
+                      Priority : 5
+                   ThreadGroup : java.lang.ThreadGroup[name=system,maxpri=10]
+                            ID : 5
+                         State : RUNNABLE
+
+                          Name : Signal Dispatcher
+                      Priority : 9
+                   ThreadGroup : java.lang.ThreadGroup[name=system,maxpri=10]
+                            ID : 4
+                         State : RUNNABLE
+
+                          Name : Reference Handler
+                      Priority : 10
+                   ThreadGroup : java.lang.ThreadGroup[name=system,maxpri=10]
+                            ID : 2
+                         State : WAITING
+                         Stack : java.lang.Object.wait(Object.java:-2)
+                               : java.lang.Object.wait(Object.java:502)
+                               : java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+                               : java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+                          Name : Finalizer
+                      Priority : 8
+                   ThreadGroup : java.lang.ThreadGroup[name=system,maxpri=10]
+                            ID : 3
+                         State : WAITING
+                         Stack : java.lang.Object.wait(Object.java:-2)
+                               : java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+                               : java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+                               : java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+                          Name : main
+                      Priority : 5
+                   ThreadGroup : java.lang.ThreadGroup[name=main,maxpri=10]
+                            ID : 1
+                         State : RUNNABLE
+                         Stack : java.lang.Thread.dumpThreads(Thread.java:-2)
+                               : java.lang.Thread.getAllStackTraces(Thread.java:1607)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer.generateThreadInfo(DefaultTracer.java:1145)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer.access$1200(DefaultTracer.java:155)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer$8.run(DefaultTracer.java:1100)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer$8.run(DefaultTracer.java:1027)
+                               : java.security.AccessController.doPrivileged(AccessController.java:-2)
+                               : com.ibm.msg.client.commonservices.j2se.trace.DefaultTracer.ffst(DefaultTracer.java:1025)
+                               : com.ibm.msg.client.commonservices.j2se.wmqsupport.TracerImpl.ffst(TracerImpl.java:142)
+                               : com.ibm.msg.client.commonservices.trace.Trace.ffstInternal(Trace.java:1805)
+                               : com.ibm.msg.client.commonservices.trace.Trace.ffst(Trace.java:1673)
+                               : com.ibm.msg.client.jms.JmsFactoryFactory.getInstance(JmsFactoryFactory.java:214)
+                               : com.ibm.mq.jms.MQConnectionFactory.initialiseMQConnectionFactory(MQConnectionFactory.java:3314)
+                               : com.ibm.mq.jms.MQConnectionFactory.<init>(MQConnectionFactory.java:283)
+                               : com.ibm.mq.jms.MQQueueConnectionFactory.<init>(MQQueueConnectionFactory.java:81)
+                               : hello.config.Application.mqQueueConnectionFactory(Application.java:64)
+                               : hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$mqQueueConnectionFactory$1(<generated>:-1)
+                               : hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>:-1)
+                               : org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+                               : org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+                               : hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>:-1)
+                               : sun.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+                               : sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:498)
+                               : org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+                               : org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+                               : org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+                               : org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+                               : org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+                               : org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+                               : org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+                               : org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+                               : org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+                               : org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+                               : org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:381)
+                               : hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.mqQueueConnectionFactory(<generated>:-1)
+                               : hello.config.Application.myConnectionFactory(Application.java:76)
+                               : hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.CGLIB$myConnectionFactory$0(<generated>:-1)
+                               : hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70$$FastClassBySpringCGLIB$$216b46d7.invoke(<generated>:-1)
+                               : org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+                               : org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:356)
+                               : hello.config.Application$$EnhancerBySpringCGLIB$$c1c9bc70.myConnectionFactory(<generated>:-1)
+                               : sun.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+                               : sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:498)
+                               : org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+                               : org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+                               : org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1128)
+                               : org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1023)
+                               : org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+                               : org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+                               : org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+                               : org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+                               : org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+                               : org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+                               : org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:751)
+                               : org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861)
+                               : org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541)
+                               : org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+                               : org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+                               : org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+                               : org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+                               : org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+                               : hello.config.Application.main(Application.java:92)
+                               : sun.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+                               : sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+                               : sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                               : java.lang.reflect.Method.invoke(Method.java:498)
+                               : com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+
+                          Name : JMSCCThreadPoolMaster
+                      Priority : 5
+                   ThreadGroup : java.lang.ThreadGroup[name=main,maxpri=10]
+                            ID : 13
+                         State : WAITING
+                         Stack : java.lang.Object.wait(Object.java:-2)
+                               : java.lang.Object.wait(Object.java:502)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$WorkQueueManagerThread.waitForNotification(WorkQueueManagerImplementation.java:660)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$WorkQueueManagerThread.waitForNotification(WorkQueueManagerImplementation.java:629)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$WorkQueueManagerThread.run(WorkQueueManagerImplementation.java:897)
+
+                          Name : Monitor Ctrl-Break
+                      Priority : 5
+                   ThreadGroup : java.lang.ThreadGroup[name=main,maxpri=10]
+                            ID : 9
+                         State : RUNNABLE
+                         Stack : java.net.DualStackPlainSocketImpl.accept0(DualStackPlainSocketImpl.java:-2)
+                               : java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+                               : java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+                               : java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+                               : java.net.ServerSocket.implAccept(ServerSocket.java:545)
+                               : java.net.ServerSocket.accept(ServerSocket.java:513)
+                               : com.intellij.rt.execution.application.AppMain$1.run(AppMain.java:79)
+                               : java.lang.Thread.run(Thread.java:745)
+
+First Failure Symptom Report completed at Fri Nov 04 14:13:16 MSK 2016
+------------------------------------END FFST------------------------------------
