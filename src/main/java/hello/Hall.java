@@ -1,9 +1,7 @@
 package hello;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Hall {
@@ -17,6 +15,9 @@ public class Hall {
 
     @Column
     private String name;
+
+    @OneToMany
+    private Set<Seat> seats;
 
     public Hall() {
     }
@@ -49,4 +50,5 @@ public class Hall {
     public void setName(String name) {
         this.name = name;
     }
+
 }

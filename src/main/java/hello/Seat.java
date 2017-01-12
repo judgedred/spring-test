@@ -15,8 +15,8 @@ public class Seat {
     @Column
     private int number;
 
-
-//    private Hall hall;
+    /*@ManyToOne
+    private Hall hall;*/
 
     public int getId() {
         return id;
