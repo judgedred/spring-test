@@ -1,13 +1,17 @@
 package hello;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+//@Inheritance(strategy=InheritanceType.JOINED)
 public class Hall {
 
     @Id
-    @GeneratedValue
+    @TableGenerator(name = "hall", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "hall")
+//    @GeneratedValue(strategy = GenerationType.TABLE) // works with InheritanceType.TABLE_PER_CLASS
     private int id;
 
     @Column
@@ -16,8 +20,18 @@ public class Hall {
     @Column
     private String name;
 
-    @OneToMany
-    private Set<Seat> seats;
+    /*@ElementCollection
+    List<String> hallLabels = new ArrayList<>();*/
+
+    @ElementCollection
+    List<Label> hallLabels = new ArrayList<>();
+
+    /*By specifying the "cascade" option you tell hibernate to save them to the database when saving their parent.*/
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Seat> seats;
+
+    /*@NaturalId
+    private String ssn;*/
 
     public Hall() {
     }
@@ -51,4 +65,19 @@ public class Hall {
         this.name = name;
     }
 
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
+    }
+
+    public List<Label> getHallLabels() {
+        return hallLabels;
+    }
+
+    public void setHallLabels(List<Label> hallLabels) {
+        this.hallLabels = hallLabels;
+    }
 }

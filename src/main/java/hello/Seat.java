@@ -1,15 +1,13 @@
 package hello;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Seat {
 
     @Id
-    @GeneratedValue
+    @TableGenerator(name = "seat", allocationSize = 5)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "seat")
     private int id;
 
     @Column
@@ -17,6 +15,13 @@ public class Seat {
 
     /*@ManyToOne
     private Hall hall;*/
+
+    public Seat() {
+    }
+
+    public Seat(int number) {
+        this.number = number;
+    }
 
     public int getId() {
         return id;

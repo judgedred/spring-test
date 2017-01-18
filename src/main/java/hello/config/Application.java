@@ -1,7 +1,9 @@
 package hello.config;
 
 import com.ibm.mq.jms.MQQueue;
+import hello.ComfortHall;
 import hello.Hall;
+import hello.Seat;
 import hello.TestDao;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,6 +27,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 @SpringBootApplication
@@ -135,7 +139,21 @@ public class Application {
         /*Hibernate test*/
         TestDao testDao = context.getBean(TestDao.class);
         Hall hall = new Hall(1, "Большой зал");
+        Seat[] seats = {new Seat(1), new Seat(2), new Seat(3), new Seat(4), new Seat(5)};
+//        Seat[] seats = {new Seat(1)};
+        hall.setSeats(Arrays.asList(seats));
+//        hall.setHallLabels(Arrays.asList("Label1", "Label2"));
         testDao.createHall(hall);
+        Hall hallPersistent = testDao.getHallById(1);
+        System.out.println(hallPersistent);
+        Hall comfortHall = new ComfortHall(2, "Зал повышенной комфортности", "Есть", false);
+        testDao.createHall(comfortHall);
+        /*Seat seat = testDao.getSeatsByHallId(1).get(1);
+        System.out.println(seat);*/
+        Hall hall2 = new Hall(1, "Test sequence");
+        testDao.createHall(hall);
+        List<Hall> halls = testDao.getHalls();
+        System.out.println(halls);
         /*Hibernate test*/
 
     }
