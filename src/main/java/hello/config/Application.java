@@ -1,17 +1,14 @@
 package hello.config;
 
 import com.ibm.mq.jms.MQQueue;
-import hello.ComfortHall;
-import hello.Hall;
-import hello.Seat;
-import hello.TestDao;
+import hello.TestService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
@@ -22,20 +19,44 @@ import org.springframework.jms.support.converter.MessageType;
 import org.springframework.jms.support.destination.JndiDestinationResolver;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.jndi.JndiTemplate;
-import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
-import java.util.Arrays;
-import java.util.List;
+import javax.sql.DataSource;
 import java.util.Properties;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"hello"})
 @EnableJms
-@ComponentScan({"hello"})
-@EntityScan({"hello"})
+//@EnableTransactionManagement          // вроде работает и так. возможно если делать отедльный конфигурационный класс, где отсутствует @SpringBootApplication тогда нужно
 public class Application {
+
+    @Value("${db.driver}")
+    private String DB_DRIVER;
+
+    @Value("${db.password}")
+    private String DB_PASSWORD;
+
+    @Value("${db.url}")
+    private String DB_URL;
+
+    @Value("${db.username}")
+    private String DB_USERNAME;
+
+    @Value("${hibernate.dialect}")
+    private String HIBERNATE_DIALECT;
+
+    @Value("${hibernate.show_sql}")
+    private String HIBERNATE_SHOW_SQL;
+
+    @Value("${hibernate.hbm2ddl.auto}")
+    private String HIBERNATE_HBM2DDL_AUTO;
+
+    @Value("${entitymanager.packagesToScan}")
+    private String ENTITYMANAGER_PACKAGES_TO_SCAN;
+
 
     @Bean
     public JmsListenerContainerFactory<?> myFactory(ConnectionFactory connectionFactory,
@@ -109,9 +130,41 @@ public class Application {
         return resolver;
     }
 
-    @Bean
-    public HibernateJpaSessionFactoryBean sessionFactory() {
+    /*@Bean
+    public HibernateJpaSessionFactoryBean sessionFactory() {    // Does not rollback transactions. Commits on flush().
         return new HibernateJpaSessionFactoryBean();
+    }*/
+
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(DB_DRIVER);
+        dataSource.setUrl(DB_URL);
+        dataSource.setUsername(DB_USERNAME);
+        dataSource.setPassword(DB_PASSWORD);
+        return dataSource;
+    }
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
+        sessionFactoryBean.setDataSource(dataSource());
+        sessionFactoryBean.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);
+        Properties hibernateProperties = new Properties();
+        hibernateProperties.put("hibernate.dialect", HIBERNATE_DIALECT);
+        hibernateProperties.put("hibernate.show_sql", HIBERNATE_SHOW_SQL);
+        hibernateProperties.put("hibernate.hbm2ddl.auto", HIBERNATE_HBM2DDL_AUTO);
+        sessionFactoryBean.setHibernateProperties(hibernateProperties);
+
+        return sessionFactoryBean;
+    }
+
+    @Bean
+    public HibernateTransactionManager transactionManager() {
+        HibernateTransactionManager transactionManager =
+                new HibernateTransactionManager();
+        transactionManager.setSessionFactory(sessionFactory().getObject());
+        return transactionManager;
     }
 
 
@@ -137,7 +190,7 @@ public class Application {
         /*Jms test*/
 
         /*Hibernate test*/
-        TestDao testDao = context.getBean(TestDao.class);
+        /*TestDao testDao = context.getBean(TestDao.class);
         Hall hall = new Hall(1, "Большой зал");
         Seat[] seats = {new Seat(1), new Seat(2), new Seat(3), new Seat(4), new Seat(5)};
 //        Seat[] seats = {new Seat(1)};
@@ -148,13 +201,33 @@ public class Application {
         System.out.println(hallPersistent);
         Hall comfortHall = new ComfortHall(2, "Зал повышенной комфортности", "Есть", false);
         testDao.createHall(comfortHall);
-        /*Seat seat = testDao.getSeatsByHallId(1).get(1);
-        System.out.println(seat);*/
+        *//*Seat seat = testDao.getSeatsByHallId(1).get(1);
+        System.out.println(seat);*//*
         Hall hall2 = new Hall(1, "Test sequence");
         testDao.createHall(hall);
         List<Hall> halls = testDao.getHalls();
-        System.out.println(halls);
+        System.out.println(halls);*/
         /*Hibernate test*/
+
+        /*Transaction test*/
+        TestService testService = context.getBean(TestService.class);
+//        Hall hall = new Hall(1, "Большой зал");
+//        testService.createHall(hall);
+//        Seat seat = new Seat(5);
+//        testService.createSeat(seat);
+        testService.singleTransaction();
+
+        /*Multiple threads*/
+        /*TestService testService = context.getBean(TestService.class);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        Thread one = new Thread(testService::singleTransaction);
+        Thread two = new Thread(() -> System.out.println("Halls: " + testService.getHalls()));
+//        executorService.execute(one);
+//        executorService.execute(two);
+//        executorService.shutdown();
+        one.start();
+        two.start();*/
+        /*Transaction test*/
 
     }
 }

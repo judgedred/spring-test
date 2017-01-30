@@ -19,70 +19,59 @@ public class TestDao {
     }
 
     public Hall createHall(Hall hall) {
+        session = sessionFactory.getCurrentSession();
+        session.save(hall);
+        session.flush(); // бессмысленен при GenerationType.IDENTITY, т.к. запрос сразу выполняется
+//            throw new RuntimeException();
+        return hall;
+    }
+
+    /*Manual transaction management*/
+    /*public Hall createHall(Hall hall) {
 
         try {
             session = sessionFactory.openSession();
             session.beginTransaction();
             session.save(hall);
             session.flush(); // Обязательно?
-            session.getTransaction().commit();
+            try {
+//            Thread.yield();
+                Thread.sleep(TimeUnit.SECONDS.toMillis(10));
+            } catch(InterruptedException e) {
+                e.printStackTrace();
+            }
+            session.getTransaction().rollback();
+            session.close();
             return hall;
         } catch(Exception e) {
-            session.getTransaction().rollback();
             throw new RuntimeException(e);
-        } finally {
-            if(session != null && session.isOpen()) {
-                session.close();
-            }
         }
-    }
+    }*/
 
     public Hall getHallById(int id) {
-        try {
-//            session = sessionFactory.getCurrentSession();
-            session = sessionFactory.openSession();
-            Hall hall = (Hall)session.get(Hall.class, id);
-            return hall;
-        } catch(Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-            if(session != null && session.isOpen()) {
-                session.close();
-            }
-        }
+        session = sessionFactory.getCurrentSession();
+        Hall hall = (Hall) session.get(Hall.class, id);
+        return hall;
         // Узнать про getCurrentSession и нужно ли ее закрывать
         // пока getCurrentSession кидает exception
+        // Разобрался. При подключении TransactionManager всё работает
     }
 
     public List<Hall> getHalls() {
-        try {
-            session = sessionFactory.openSession();
-            return (List<Hall>) session.createCriteria(Hall.class).list();
-        } catch(Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-            if(session != null && session.isOpen()) {
-                session.close();
-            }
-        }
+        session = sessionFactory.getCurrentSession();
+        return (List<Hall>) session.createCriteria(Hall.class).list();
     }
 
-    public List<Seat> getSeatsByHallId(int id){
-            try {
-                session = sessionFactory.openSession();
-                Hall hall = (Hall) session.get(Hall.class, id);
-                return hall.getSeats();
-            } catch(Exception e) {
-                throw new RuntimeException(e);
-            } finally {
-                if(session != null && session.isOpen()) {
-                    session.close();
-                }
+    public List<Seat> getSeatsByHallId(int id) {
+        session = sessionFactory.getCurrentSession();
+        Hall hall = (Hall) session.get(Hall.class, id);
+        return hall.getSeats();
+    }
 
-            }
-        }
-
-    /*public Seat createSeat(Seat seat) {
-
-    }*/
+    public Seat createSeat(Seat seat) {
+        session = sessionFactory.getCurrentSession();
+        session.save(seat);
+        throw new RuntimeException();
+//            return seat;
+    }
 }

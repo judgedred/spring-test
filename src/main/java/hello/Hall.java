@@ -11,6 +11,7 @@ public class Hall {
     @Id
     @TableGenerator(name = "hall", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "hall")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @GeneratedValue(strategy = GenerationType.TABLE) // works with InheritanceType.TABLE_PER_CLASS
     private int id;
 
