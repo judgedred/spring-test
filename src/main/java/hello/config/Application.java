@@ -1,6 +1,8 @@
 package hello.config;
 
 import com.ibm.mq.jms.MQQueue;
+import hello.Hall;
+import hello.Seat;
 import hello.TestService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -26,6 +28,8 @@ import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 @SpringBootApplication(scanBasePackages = {"hello"})
@@ -189,6 +193,7 @@ public class Application {
         */
         /*Jms test*/
 
+        TestService testService = context.getBean(TestService.class);
         /*Hibernate test*/
         /*TestDao testDao = context.getBean(TestDao.class);
         Hall hall = new Hall(1, "Большой зал");
@@ -210,12 +215,22 @@ public class Application {
         /*Hibernate test*/
 
         /*Transaction test*/
-        TestService testService = context.getBean(TestService.class);
-//        Hall hall = new Hall(1, "Большой зал");
-//        testService.createHall(hall);
-//        Seat seat = new Seat(5);
-//        testService.createSeat(seat);
-        testService.singleTransaction();
+        /*Hall hall = new Hall(1, "Большой зал");
+        testService.createHall(hall);
+        Seat seat = new Seat(5);
+        testService.createSeat(seat);*/
+//        testService.singleTransaction();
+
+        /*Reattach test*/
+        Hall hall = new Hall(1, "Большой зал");
+        Seat[] seats = {new Seat(1), new Seat(2), new Seat(3), new Seat(4), new Seat(5)};
+        hall.setSeats(Arrays.asList(seats));
+        testService.createHall(hall);
+        Hall hallPersistent = testService.getHallById(1);
+        hallPersistent = testService.attach(hallPersistent);
+        List<Seat> seatList = hallPersistent.getSeats();
+        Seat seat = seatList.get(0);
+        System.out.println(seat);
 
         /*Multiple threads*/
         /*TestService testService = context.getBean(TestService.class);

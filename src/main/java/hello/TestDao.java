@@ -1,5 +1,6 @@
 package hello;
 
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,5 +74,11 @@ public class TestDao {
         session.save(seat);
         throw new RuntimeException();
 //            return seat;
+    }
+
+    public Hall attach(Hall hall) {
+        session = sessionFactory.getCurrentSession();
+        session.lock(hall, LockMode.NONE);
+        return hall;
     }
 }

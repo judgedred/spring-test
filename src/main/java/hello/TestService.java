@@ -25,6 +25,11 @@ public class TestService {
     }
 
     @Transactional
+    public Hall getHallById(int id) {
+        return testDao.getHallById(id);
+    }
+
+    @Transactional
     public Seat createSeat(Seat seat) {
         return testDao.createSeat(seat);
     }
@@ -53,6 +58,14 @@ public class TestService {
         }*/
         Seat seat = new Seat(5);
         createSeat(seat);
+    }
+
+    @Transactional
+    public Hall attach(Hall hall) {
+        hall = testDao.attach(hall);
+        List<Seat> seats = hall.getSeats();
+        Seat seat = seats.get(0);
+        return hall;
     }
 }
 
